@@ -63,9 +63,9 @@ class ViewController: UIViewController ,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
         
-        let str = self.titles!.objectAtIndex(indexPath.row) as String
+        let str = self.titles!.objectAtIndex(indexPath.row) as? String
         cell.textLabel!.text=str
         cell.imageView!.image = UIImage(named: "swift-hero")
         
@@ -77,7 +77,7 @@ class ViewController: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         
         var detailVC = DetailViewController()
         
-        let str = self.titles!.objectAtIndex(indexPath.row) as String
+        let str = self.titles!.objectAtIndex(indexPath.row) as? String
         detailVC.title=str
         self.navigationController?.pushViewController(detailVC, animated: false)
         

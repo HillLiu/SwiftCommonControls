@@ -43,16 +43,16 @@ class DetailViewController: UIViewController ,UIPickerViewDataSource,UIPickerVie
             
         }
         if self.title == "UIButton" {
-            var btn = UIButton.buttonWithType(UIButtonType.System) as UIButton
-            btn.frame = rect
-            btn.backgroundColor = color
-            btn.setTitle("我是一个Button", forState: UIControlState.Normal)
-            btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-            btn.titleColorForState(UIControlState.Normal)
-            btn.titleForState(UIControlState.Normal)
-            btn.addTarget(self, action: "btnAction", forControlEvents: UIControlEvents.TouchUpInside)
+            var btn = UIButton.buttonWithType(UIButtonType.System) as? UIButton
+            btn!.frame = rect
+            btn!.backgroundColor = color
+            btn!.setTitle("我是一个Button", forState: UIControlState.Normal)
+            btn!.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+            btn!.titleColorForState(UIControlState.Normal)
+            btn!.titleForState(UIControlState.Normal)
+            btn!.addTarget(self, action: "btnAction", forControlEvents: UIControlEvents.TouchUpInside)
             
-            self.view.addSubview(btn)
+            self.view.addSubview(btn!)
     
         }
         
@@ -207,7 +207,7 @@ class DetailViewController: UIViewController ,UIPickerViewDataSource,UIPickerVie
     }
     //UIPickerViewDelegate
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String!{
-        return self.items?.objectAtIndex(row) as String
+        return self.items?.objectAtIndex(row) as! String
     }
 
     func btnAction(){
